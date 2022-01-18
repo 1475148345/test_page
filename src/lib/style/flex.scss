@@ -1,0 +1,32 @@
+.p-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.p-flex-jc-center{
+    justify-content: center;
+}
+.p-flex-jc-end{
+    justify-content: flex-end;
+}
+.p-flex-jc-start{
+    justify-content: flex-start;
+}
+.p-flex-jc-space-between{
+    justify-content: space-between;
+}
+.p-flex-jc-space-around{
+    justify-content: space-around;
+}
+.p-flex-ai-top{
+    align-items: flex-start;
+}
+.p-flex-ai-center{
+    align-items: center;
+}
+.p-flex-ai-bottom{
+    align-items: flex-end;
+}
+
+.p-flex-1{
+    flex: 1;
+}

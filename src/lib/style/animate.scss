@@ -1,0 +1,11 @@
+.ani-click:active{
+  animation: clickAnimate .2s ease-in;
+}
+@keyframes clickAnimate{
+  0%{
+    background-color: #f8f8f8;
+  }
+  100%{
+    background-color: #fff;
+  }
+}
