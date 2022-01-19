@@ -36,14 +36,6 @@
     <slot></slot>
   </div>
 </template>
-<!-- <style>
-  .p-row >.p-col:first-child{
-    padding-left: 0 !important;
-  }
-  .p-row >.p-col:last-child{
-    padding-right: 0 !important;
-  }
-</style> -->
 <style lang="scss" scoped>
 @import '../style/base.scss';
 .p-row{

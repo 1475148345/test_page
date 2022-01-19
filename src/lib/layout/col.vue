@@ -12,8 +12,6 @@
     })
     const style = computed(()=>{
         const gutter = inject('gutter')
-        console.log('gutter,',gutter);
-        // const gutter = this.$parent.gutter
         return gutter > 0 ? `padding:0 ${gutter}px;` : ''
     })
 </script>

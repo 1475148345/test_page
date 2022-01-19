@@ -1,20 +1,20 @@
+<script setup lang="ts">
+import { PRow, PCol } from 'pui-vue-pxs'
+</script>
 <preview>基础示例</preview>
 <template>
-  <Row>
-    <Col>span24</Col>
-  </Row>
-  <Row>
-    <Col :span="8">span8</Col>
-    <Col :span="8">span8</Col>
-    <Col :span="8">span8</Col>
-  </Row>
-  <Row>
-    <Col :span="12">span12</Col>
-    <Col :span="8" :offset="4">span8,offset4</Col>
-  </Row>
+  <PRow>
+    <PCol>span24</PCol>
+  </PRow>
+  <PRow>
+    <PCol :span="8">span8</PCol>
+    <PCol :span="8">span8</PCol>
+    <PCol :span="8">span8</PCol>
+  </PRow>
+  <PRow>
+    <PCol :span="12">span12</PCol>
+    <PCol :span="8" :offset="4">span8,offset4</PCol>
+  </PRow>
 </template>
 
-<script setup lang="ts">
-import Row from "../../../lib/layout/row.vue";
-import Col from "../../../lib/layout/col.vue";
-</script>
+

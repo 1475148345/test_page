@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import PButton from "../../../lib/button/index.vue";
-
+import { PButton } from 'pui-vue-pxs'
 </script>
 
 <preview>按钮大小</preview>

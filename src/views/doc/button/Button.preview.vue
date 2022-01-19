@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import PButton from "../../../lib/button/index.vue";
-const click=()=>{
+import {PButton} from 'pui-vue-pxs'
+
+const click=():void=>{
   console.log(11);
 }
 </script>

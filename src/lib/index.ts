@@ -1,16 +1,24 @@
 import { App } from "vue";
 import PButton from "./button/index.vue";
-import pRow from "./layout/row.vue";
-import pCol from "./layout/col.vue";
-
-export {  PButton, pRow, pCol };
-
-const components = [PButton, pRow, pCol];
+import PRow from "./layout/row.vue";
+import PCol from "./layout/col.vue";
+import PLoading from "./loading/index.vue";
+import PIcon from "./icon/index.vue";
+export {
+  PButton, 
+  PRow, 
+  PCol, 
+  PLoading, 
+  PIcon
+}
 
 // 全局注册主键
+const COMP = {
+  PButton, PRow, PCol, PLoading, PIcon
+}
 export function register(app: App): void {
-  for (const component of components) {
-    app.component(`p-${component.name}`, component);
+  for (const key in COMP) {
+    app.component(`p-${key}`, COMP[key]);
   }
 }
 
