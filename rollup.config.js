@@ -7,7 +7,7 @@ import { terser } from "rollup-plugin-terser"
 import alias from '@rollup/plugin-alias'
 import path from "path";
 import resolve from 'rollup-plugin-node-resolve'
-
+import copy from 'rollup-plugin-copy'
 export default {
   input: 'src/lib/index.ts',
   output: [{
@@ -29,7 +29,7 @@ export default {
     esbuild({
       include: /\.[jt]s$/,
       minify: process.env.NODE_ENV === 'production',
-      target: 'es2015' 
+      target: 'es2015'
     }),
     vue({
       include: /\.vue$/,
@@ -38,12 +38,18 @@ export default {
       entries: [
         {
           find: '@', // 别名名称，作为依赖项目需要使用项目名
-          replacement: path.resolve(__dirname, 'src'), 
+          replacement: path.resolve(__dirname, 'src'),
           customResolver: resolve({
             extensions: ['.js', '.jsx', '.vue', '.sass', '.scss']
           })
         }
       ]
     }),
+    copy({
+        targets: [
+            { src: 'public/package.json', dest: 'dist/lib' },
+            { src: 'src/lib/*', dest: 'dist/lib' }
+        ]
+    })
   ],
 }
