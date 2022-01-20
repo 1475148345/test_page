@@ -6,7 +6,7 @@
   <Preview :component="ButtonPlain" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Button from "./Button.preview.vue";
 import ButtonIcon from "./Button.icon.preview.vue";
 import ButtonStatus from "./Button.status.preview.vue";

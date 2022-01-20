@@ -1,3 +1,4 @@
+import {icon} from './index'
 export default {
   iconRight: 'icon-right',
   iconEmoji: 'icon-emoji',
@@ -41,4 +42,4 @@ export default {
   icontishi: 'icon-tishi',
   iconwushouquan: 'icon-wushouquan',
   iconxingzhuang: 'icon-xingzhuang'
-}
+} as icon

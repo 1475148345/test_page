@@ -9,6 +9,7 @@ export default defineConfig({
     md.plugin({ mode: ["html", "vue"]}),
     vitePluginVue
   ],
+  base: "./", //打包路径
   resolve:{
     alias:{
       "@": path.resolve(__dirname, "./src"), //设置别名

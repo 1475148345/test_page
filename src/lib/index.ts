@@ -13,7 +13,10 @@ export {
 }
 
 // 全局注册主键
-const COMP = {
+type compType={
+    [propName:string]:any
+}
+const COMP:compType = {
   PButton, PRow, PCol, PLoading, PIcon
 }
 export function register(app: App): void {

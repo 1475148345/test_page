@@ -19,7 +19,7 @@ const router = createRouter({
                 // { path: "intro", component: IntroDoc },
                 { path:'button',component:()=>import('../views/doc/button/index.vue') },
                 { path:'layout',component:()=>import('../views/doc/layout/index.vue') },
-                { path:'icon',component:()=>import('../views/doc/icon/index.vue') },
+                { path:'icons',component:()=>import('../views/doc/icons/index.vue') },
             ]
         }
     ]
