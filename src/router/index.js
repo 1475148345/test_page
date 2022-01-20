@@ -20,6 +20,7 @@ const router = createRouter({
                 { path:'button',component:()=>import('../views/doc/button/index.vue') },
                 { path:'layout',component:()=>import('../views/doc/layout/index.vue') },
                 { path:'icons',component:()=>import('../views/doc/icons/index.vue') },
+                { path:'loading',component:()=>import('../views/doc/loading/index.vue') },
             ]
         }
     ]

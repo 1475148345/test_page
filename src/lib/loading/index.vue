@@ -1,19 +1,22 @@
 
 <script setup lang="ts">
+import { PropType } from 'vue';
+import {TypeEnum} from './index'
 const props = defineProps({
     size: {
-      type: [String, Number],
-      default: 15
+        type: [String, Number],
+        default: 15
     },
     type: {
-      type: String,
-      default: 'scale' // scale fade
+        // type: String,
+        type: String as PropType<TypeEnum>,
+        default: 'scale' // scale fade
     },
     color: {
-      type: String,
-      default: 'white'
+        type: String,
+        default: 'white'
     } // white black'
-});
+})
 const {size,type,color} = props
 </script>
 <template>

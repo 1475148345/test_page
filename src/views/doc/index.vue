@@ -8,6 +8,7 @@
             <router-link class="menu-item" to="/doc/button">Button 按钮</router-link>
             <router-link class="menu-item" to="/doc/layout">Layout 布局</router-link>
             <router-link class="menu-item" to="/doc/icons">icons 图标</router-link>
+            <router-link class="menu-item" to="/doc/loading">loading 加载</router-link>
         </aside>
         <main class="content flex-1">
             <router-view />

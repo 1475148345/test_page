@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import TopNav from './components/topNav.vue';
 </script>
 
