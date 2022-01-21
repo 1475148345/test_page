@@ -77,7 +77,7 @@ watch(msg, (val) => {
         <div class="ceng" v-if="forbidClick"></div>
         <div class="content" :style="positionStyle" :class="'p-status--'+type">
             <p-icon :name="ICONS[type]" size="18px" :color="COLORS[type]"></p-icon>
-            <span>{{ message }}</span>
+            <span :style="'color:' + COLORS[type]">{{ message }}</span>
         </div>
     </div>
 </template>
@@ -85,22 +85,18 @@ watch(msg, (val) => {
 .p-status--success {
     background-color: #f0f9eb;
     border:1px solid #e1f3d8;
-    color: v-bind('COLORS.success');
 }
 .p-status--warning {
     background-color: #fdf6ec;
     border:1px solid #faecd8;
-    color: v-bind('COLORS.warning');
 }
 .p-status--info {
     background-color: #edf2fc;
     border:1px solid #ebeef5;
-    color: v-bind('COLORS.info');
 }
 .p-status--error {
     background-color: #fef0f0;
     border:1px solid #fde2e2;
-    color: v-bind('COLORS.error');
 }
 .p-message {
     .ceng {
