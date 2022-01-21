@@ -14,6 +14,12 @@
         border-bottom:1px solid #e5e5e5;
         h1{
             padding:0 20px;
+            font-size:30px;
+            line-height:60px;
+        }
+        a{
+            font-size:16px;
+            line-height:60px;
         }
         .topnav{
             padding:0 20px;

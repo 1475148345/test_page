@@ -9,6 +9,7 @@ import PLoading from "./loading/index.vue";
 import PIcon from "./icon/index.vue";
 import PImage from "./image/index.vue";
 import PToast from "./toast/index.vue";
+import PMessage from "./message/index.vue";
 export {
   PButton,
   PRow,
@@ -16,7 +17,8 @@ export {
   PLoading,
   PIcon,
   PImage,
-  PToast
+  PToast,
+  PMessage
 }
 
 // 全局注册主键
@@ -24,7 +26,7 @@ type compType={
     [propName:string]:any
 }
 const COMP:compType = {
-  PButton, PRow, PCol, PLoading, PIcon, PImage, PToast
+  PButton, PRow, PCol, PLoading, PIcon, PImage, PToast, PMessage
 }
 export function install(app: App): void {
   for (const key in COMP) {

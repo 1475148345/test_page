@@ -1,6 +1,3 @@
-<script setup>
-
-</script>
 
 <template>
     <div class="flex wrap">
@@ -11,6 +8,7 @@
             <router-link class="menu-item" to="/doc/loading">loading 加载</router-link>
             <router-link class="menu-item" to="/doc/image">image 图片</router-link>
             <router-link class="menu-item" to="/doc/toast">toast 轻提示</router-link>
+            <router-link class="menu-item" to="/doc/message">message 消息提示</router-link>
         </aside>
         <main class="content flex-1">
             <router-view />
@@ -30,6 +28,7 @@
                 padding: 5px 10px;
                 width: 100%;
                 font-size: 16px;
+                color: #333;
             }
         }
         .content{

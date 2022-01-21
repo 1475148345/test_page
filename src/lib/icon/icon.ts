@@ -1,5 +1,9 @@
 import {icon} from './index'
 export default {
+  iconError: 'icon-error',
+  iconWarning: 'icon-warning',
+  iconInfo: 'icon-info',
+  iconSuccess: 'icon-success-filling',
   iconRight: 'icon-right',
   iconEmoji: 'icon-emoji',
   iconAdd: 'icon-add',

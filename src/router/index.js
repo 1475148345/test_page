@@ -23,6 +23,7 @@ const router = createRouter({
                 { path:'loading',component:()=>import('../views/doc/loading/index.vue') },
                 { path:'image',component:()=>import('../views/doc/image/index.vue') },
                 { path:'toast',component:()=>import('../views/doc/toast/index.vue') },
+                { path:'message',component:()=>import('../views/doc/message/index.vue') },
             ]
         }
     ]

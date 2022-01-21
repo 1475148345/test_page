@@ -21,7 +21,10 @@ import "prismjs";
 import "prismjs/themes/prism.css";
 const Prism = (window as any).Prism;
 const props = defineProps({
-  component: Object,
+  component: {
+      type:Object,
+      required:true
+  },
 });
 
 // console.log(props.component.__sourceCode);

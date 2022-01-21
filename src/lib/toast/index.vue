@@ -31,9 +31,6 @@ let visible = ref(false)
 let timer:number|null
 
 const methodsMap={
-    clickAction:()=> {
-      if (forbidClick) methodsMap.close()
-    },
     clearTimer:(timer:number|null)=>{
         if (timer) {
             clearTimeout(timer)
@@ -65,7 +62,7 @@ watch(msg,(val)=>{
 </script>
 <template>
   <div class="p-toast" v-if="visible">
-    <div class="ceng" @click="methodsMap.clickAction()"></div>
+    <div class="ceng" v-if="forbidClick"></div>
     <div class="content" :style="{top:positionStyle}">
       <PLoading v-if="loading" size="20" type="fade"/>
       <span>{{message}}</span>

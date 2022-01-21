@@ -1,12 +1,12 @@
 <template>
-  <Preview :component="Toast" />
-  <Preview :component="ToastPosition" />
+  <Preview :component="Message" />
+  <Preview :component="MessagePosition" />
 </template>
 
 <script setup lang="ts">
-import Toast from "./Toast.preview.vue";
-import ToastPosition from "./Toast.position.preview.vue";
-import Preview from "../../../components/Preview.vue";
+import Message from "./Message.preview.vue";
+import MessagePosition from "./Message.position.preview.vue";
+import Preview from "@/components/Preview.vue";
 </script>
 
 <style lang="scss">
