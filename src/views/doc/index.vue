@@ -10,6 +10,7 @@
             <router-link class="menu-item" to="/doc/icons">icons 图标</router-link>
             <router-link class="menu-item" to="/doc/loading">loading 加载</router-link>
             <router-link class="menu-item" to="/doc/image">image 图片</router-link>
+            <router-link class="menu-item" to="/doc/toast">toast 轻提示</router-link>
         </aside>
         <main class="content flex-1">
             <router-view />

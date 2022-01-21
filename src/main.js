@@ -2,5 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import "github-markdown-css";
-import Pui from "./lib/index";
-createApp(App).use(router).use(Pui).mount('#app')
+// import Pui from "./lib/index";
+// Vue.use(pToast)
+createApp(App).use(router).mount('#app')

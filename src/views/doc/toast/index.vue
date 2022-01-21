@@ -1,13 +1,9 @@
 <template>
   <Preview :component="Layout" />
-  <Preview :component="LayoutGutter" />
-  <Preview :component="LayoutFlex" />
 </template>
 
 <script setup lang="ts">
-import Layout from "./Layout.preview.vue";
-import LayoutGutter from "./Layout.gutter.preview.vue";
-import LayoutFlex from "./Layout.flex.preview.vue";
+import Layout from "./Toast.preview.vue";
 import Preview from "../../../components/Preview.vue";
 </script>
 
