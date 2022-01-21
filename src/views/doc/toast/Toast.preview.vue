@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PButton } from '../../../lib/'
-import { useToast } from '../../../lib/hooks'
+import { PButton } from 'pui-vue-pxs'
+import { useToast } from 'pui-vue-pxs/hooks'
 const click = (params: any) => {
     const toast = useToast()
     toast({ message: '文字提示', ...params })
