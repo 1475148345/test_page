@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import { computed,inject } from 'vue';
     const props = defineProps({
         span: {
@@ -11,7 +11,7 @@
         }
     })
     const style = computed(()=>{
-        const gutter = inject('gutter')
+        const gutter:any = inject('gutter')
         return gutter > 0 ? `padding:0 ${gutter}px;` : ''
     })
 </script>

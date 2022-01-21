@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { PIcon } from 'pui-vue-pxs'
 import icons from 'pui-vue-pxs/icon/icon'
-console.log(icons)
 import {copyText} from'@/util'
 </script>
 
@@ -9,7 +8,7 @@ import {copyText} from'@/util'
 <template>
   <ul class="list">
       <li v-for="item in icons" :key="item" @click="copyText(item)">
-          <p-icon :name="item"></p-icon>
+          <p-icon :name="item" size="26px"></p-icon>
           <span>{{item}}</span>
       </li>
   </ul>
@@ -19,9 +18,10 @@ import {copyText} from'@/util'
     .list{
         display: flex;
         flex-wrap: wrap;
+        margin: 0 auto;
         li{
-            width: 130px;
-            height: 130px;
+            width: 125px;
+            height: 125px;
             display: flex;
             align-items: center;
             justify-content: center;

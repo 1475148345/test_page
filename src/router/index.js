@@ -21,6 +21,7 @@ const router = createRouter({
                 { path:'layout',component:()=>import('../views/doc/layout/index.vue') },
                 { path:'icons',component:()=>import('../views/doc/icons/index.vue') },
                 { path:'loading',component:()=>import('../views/doc/loading/index.vue') },
+                { path:'image',component:()=>import('../views/doc/image/index.vue') },
             ]
         }
     ]

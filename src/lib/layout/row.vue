@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import { computed, watchEffect,provide } from 'vue';
     const props = defineProps({
         gutter: {
@@ -23,7 +23,7 @@
     })
     const classComp = computed(()=>{
         const {type,justify,align} = props
-        let classStr = []
+        let classStr:string[] = []
         if (type === 'flex') {
             classStr = ['p-flex', 'p-flex-jc-' + justify, 'p-flex-ai-' + align]
         }
@@ -45,7 +45,7 @@
     clear: both;
     content: '';
   }
-  
+
 }
 
 .p-flex{

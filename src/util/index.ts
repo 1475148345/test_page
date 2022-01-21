@@ -13,3 +13,8 @@ export const copyText=(value:string)=>{
     //   });
       oInput.remove();
 }
+
+export const getImageUrl = (url:string) => {
+    const path = `/src/assets/${url}`;
+    return new URL(path,import.meta.url).href
+}
