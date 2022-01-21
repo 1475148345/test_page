@@ -1,5 +1,6 @@
 import { App } from "vue";
-export * from './hooks'
+// export * from './hooks'
+// export * from './types'
 
 import PButton from "./button/index.vue";
 import PRow from "./layout/row.vue";

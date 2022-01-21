@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { PButton, useToast } from '../../../lib/'
+import { PButton } from '../../../lib/'
+import { useToast } from '../../../lib/hooks'
 const click = (params: any) => {
     const toast = useToast()
     toast({ message: '文字提示', ...params })
