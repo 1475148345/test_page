@@ -56,10 +56,10 @@ const methodsMap = {
     show: () => {
         methodsMap.close()
         visible.value = true
-        timer = window.setTimeout(() => {
+       /*  timer = window.setTimeout(() => {
             visible.value = false
             methodsMap.clearTimer(timer)
-        }, duration)
+        }, duration) */
     },
 }
 
@@ -82,6 +82,20 @@ watch(msg, (val) => {
     </div>
 </template>
 <style lang='scss'>
+/* @keyframes topToButtom {
+    0%{
+        top: -10px;
+        opacity: 0;
+    }
+    20%{
+        top: 0px;
+        opacity: 0.9;
+    }
+    100%{
+        top: 20px;
+        opacity: 1;
+    }
+} */
 .p-status--success {
     background-color: #f0f9eb;
     border:1px solid #e1f3d8;

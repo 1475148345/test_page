@@ -1,7 +1,7 @@
 import { PMessage  } from '../index'
 import { ToastType  } from '../types'
 import { createVNode, render } from 'vue'
-let _container: HTMLElement | null
+/* let _container: HTMLElement | null
 export function useMessage() {
     return function install(options:ToastType){
 
@@ -14,5 +14,68 @@ export function useMessage() {
         document.body.appendChild(_container)
         render(vm,_container)
 
+    }
+} */
+
+const messagesAction:any = {
+    items:new Map(),
+    add:function(id:number,el:HTMLDivElement){
+        this.items.set('pMessage' + id,el);
+        let myReq:number,start = (this.items.size-1)*60;
+        const thisEl:any = el.children[0].children[0]
+        const _this=this
+        function step() {
+            start+=3;
+            console.log(start);
+            thisEl.style.top = start + "px";
+            if (start < (_this.items.size<2? 20 : _this.items.size*60 - 40)) {
+                myReq = requestAnimationFrame(step);
+            }else{
+                window.cancelAnimationFrame(myReq);
+            }
+        }
+        myReq = requestAnimationFrame(step);
+        console.log('add->',this.items);
+    },
+    remove:function(id:number,el:HTMLDivElement){
+        //移除动画
+        let myReq:number,start = 60;
+        const thisEl:any = el.children[0].children[0]
+        const _this=this
+        function step() {
+            start-=5;
+            // console.log(start);
+            thisEl.style.top = start + "px";
+            if (start > -60) {
+                myReq = requestAnimationFrame(step);
+            }else{
+                window.cancelAnimationFrame(myReq);
+                document.body.removeChild(el)
+                let mId = 'pMessage' + id
+                _this.items.delete(mId)
+                console.log('remove->',_this.items);
+            }
+        }
+        myReq = requestAnimationFrame(step);
+
+    }
+}
+let _vm=0;
+export function useMessage() {
+    return function install(options:ToastType){
+        const _container = document.createElement('div')
+        const vm = createVNode(PMessage,options)
+        document.body.appendChild(_container)
+        render(vm,_container);
+
+        _vm++;
+        (function(_vm){
+            messagesAction.add(_vm,_container)
+            let _timer = '_timer' + _vm as unknown as  number
+            _timer = setTimeout(() => {
+                messagesAction.remove(_vm,_container)
+                clearTimeout(_timer)
+            }, options.duration || 2000);
+        })(_vm)
     }
 }
