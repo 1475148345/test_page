@@ -26,7 +26,6 @@ const messagesAction:any = {
         const _this=this
         function step() {
             start+=3;
-            // console.log(start);
             thisEl.style.top = start + "px";
             if (start < (_this.items.size<2? 20 : _this.items.size*60 - 40)) {
                 myReq = requestAnimationFrame(step);
@@ -35,7 +34,6 @@ const messagesAction:any = {
             }
         }
         myReq = requestAnimationFrame(step);
-        console.log('add->',this.items);
     },
     remove:function(id:number,el:HTMLDivElement){
         //移除动画
@@ -44,7 +42,6 @@ const messagesAction:any = {
         const _this=this
         function step() {
             start-=5;
-            // console.log(start);
             thisEl.style.top = start + "px";
             if (start > -60) {
                 myReq = requestAnimationFrame(step);
@@ -53,7 +50,6 @@ const messagesAction:any = {
                 document.body.removeChild(el)
                 let mId = 'pMessage' + id
                 _this.items.delete(mId)
-                // console.log('remove->',_this.items);
                 _this.resetPostion()
             }
         }
