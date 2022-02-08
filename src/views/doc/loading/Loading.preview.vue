@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {PLoading} from '../../../lib'
+import {PLoading} from 'pui-vue-pxs'
 </script>
 
 <preview>基础示例</preview>

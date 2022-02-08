@@ -4,3 +4,9 @@ export enum ENUM_POSITION {
     bottom = 'bottom',
     topRight = 'topRight',
 }
+
+export enum PROGRESS {
+    left = 'left',
+    center = 'center',
+    right = 'right',
+}
