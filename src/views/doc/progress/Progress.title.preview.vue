@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PProgress } from '../../../lib'
+import { PProgress } from 'pui-vue-pxs'
 
 </script>
 
