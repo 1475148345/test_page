@@ -26,7 +26,7 @@ const messagesAction:any = {
         const _this=this
         function step() {
             start+=3;
-            console.log(start);
+            // console.log(start);
             thisEl.style.top = start + "px";
             if (start < (_this.items.size<2? 20 : _this.items.size*60 - 40)) {
                 myReq = requestAnimationFrame(step);
@@ -53,11 +53,17 @@ const messagesAction:any = {
                 document.body.removeChild(el)
                 let mId = 'pMessage' + id
                 _this.items.delete(mId)
-                console.log('remove->',_this.items);
+                // console.log('remove->',_this.items);
+                _this.resetPostion()
             }
         }
         myReq = requestAnimationFrame(step);
-
+    },
+    resetPostion:function(){
+        for (const [,item] of this.items) {
+            let top = item.children[0].children[0].style.top.split('px')[0]
+            item.children[0].children[0].style.top = top - 60 + 'px'
+        }
     }
 }
 let _vm=0;
