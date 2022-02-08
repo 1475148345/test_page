@@ -10,11 +10,11 @@ const click = (params: MessagePropsType) => {
 <preview>提示位置</preview>
 <template>
     <div class="flex flex-1 wrap">
-        <p-button type="warning" @click="click({ duration: 5000 , message: '这是一段提示消息~',position:'top'})">top</p-button>
-        <p-button @click="click({ duration: 55000 , message: '这是一段提示消息~',position:'center'})">center</p-button>
-        <p-button @click="click({ duration: 55000 , message: '这是一段提示消息~',position:'bottom'})">bottom</p-button>
-        <p-button @click="click({ duration: 55000 , message: '这是一段提示消息~',position:'topRight'})">topRight</p-button>
-        <p-button @click="click({ duration: 55000 , message: '这是一段提示消息~',position:'top:30%;right:30px;'})">top:30px;right:30px;</p-button>
+        <p-button type="warning" @click="click({ duration: 3000 , message: '这是一段提示消息~',position:'top'})">top</p-button>
+        <p-button @click="click({ duration: 3000 , message: '这是一段提示消息~',position:'center'})">center</p-button>
+        <p-button @click="click({ duration: 3000 , message: '这是一段提示消息~',position:'bottom'})">bottom</p-button>
+        <p-button @click="click({ duration: 3000 , message: '这是一段提示消息~',position:'topRight'})">topRight</p-button>
+        <p-button @click="click({ duration: 3000 , message: '这是一段提示消息~',position:'top:30%;right:30px;'})">top:30px;right:30px;</p-button>
     </div>
 </template>
 
