@@ -118,6 +118,7 @@ export default {
     line-height: 36px;
     padding: 0 10px;
     font-size: $font-size-sm;
+    min-width: 80px;
   }
   .p-button--normal{
     height: 44px;

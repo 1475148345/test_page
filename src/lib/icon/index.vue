@@ -28,11 +28,11 @@
     return styleStr.join('')
   })
 </script>
-<!-- <script lang="ts">
+<script lang="ts">
 export default {
-  name: 'p-icon'
+  name: 'pIcon'
 }
-</script> -->
+</script>
 <style lang="scss" scoped>
   .p-icon {
        width: 1em;

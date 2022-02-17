@@ -25,6 +25,7 @@ const router = createRouter({
                 { path:'toast',component:()=>import('../views/doc/toast/index.vue') },
                 { path:'message',component:()=>import('../views/doc/message/index.vue') },
                 { path:'progress',component:()=>import('../views/doc/progress/index.vue') },
+                { path:'dialog',component:()=>import('../views/doc/dialog/index.vue') },
             ]
         }
     ]

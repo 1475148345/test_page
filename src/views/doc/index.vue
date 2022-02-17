@@ -10,6 +10,7 @@
             <router-link class="menu-item" to="/doc/toast">toast 轻提示</router-link>
             <router-link class="menu-item" to="/doc/message">message 消息提示</router-link>
             <router-link class="menu-item" to="/doc/progress">progress 进度条</router-link>
+            <router-link class="menu-item" to="/doc/dialog">dialog 弹窗提示</router-link>
         </aside>
         <main class="content flex-1">
             <router-view />
