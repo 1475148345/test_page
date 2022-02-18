@@ -5,7 +5,11 @@ import pIcon from '../icon/index.vue';
 import pButton from '../button/index.vue';
 const props = defineProps({
     forbidClick: Boolean, // 是否可点击背景
-    visible: Boolean
+    visible: Boolean,
+    footer: {
+        type: Boolean,
+        default: true
+    }
 })
 const { forbidClick } = props
 
@@ -47,10 +51,12 @@ watch(propVisible, (val) => {
             <div class="p-dialog-body">
                 <slot>内容</slot>
             </div>
-            <div class="p-dialog-footer p-flex p-flex-jc-end">
-                <p-button plain size="small" @click="methodsMap.cancel()">取消</p-button>
-                <p-button type="info" size="small" @click="methodsMap.submit()">确定</p-button>
-            </div>
+            <slot name="footer" v-if="footer">
+                <div class="p-dialog-footer p-flex p-flex-jc-end">
+                    <p-button plain size="small" @click="methodsMap.cancel()">取消</p-button>
+                    <p-button type="info" size="small" @click="methodsMap.submit()">确定</p-button>
+                </div>
+            </slot>
         </div>
     </div>
 </template>
