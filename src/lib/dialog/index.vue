@@ -51,8 +51,9 @@ watch(propVisible, (val) => {
             <div class="p-dialog-body">
                 <slot>内容</slot>
             </div>
+
             <slot name="footer" v-if="footer">
-                <div class="p-dialog-footer p-flex p-flex-jc-end">
+                <div class="p-dialog-footer p-flex p-flex-jc-end" >
                     <p-button plain size="small" @click="methodsMap.cancel()">取消</p-button>
                     <p-button type="info" size="small" @click="methodsMap.submit()">确定</p-button>
                 </div>

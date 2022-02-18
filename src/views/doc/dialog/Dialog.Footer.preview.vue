@@ -22,10 +22,9 @@ const cancel=()=>{
         <p-button @click="click()">自定义footer</p-button>
         <p-dialog v-model:visible="visible" @confirm="confirm" @cancel="cancel">
             <p>自定义footer</p>
-            <template #fooer>
+            <template #footer>
                 <div class="p-dialog-footer p-flex p-flex-jc-end">
-                    <p-button plain size="small">取消</p-button>
-                    <p-button type="danger" size="small">确定</p-button>
+                    <p-button type="danger" size="small" icon="icon-add" iconColor="#fff">保存</p-button>
                 </div>
             </template>
         </p-dialog>
