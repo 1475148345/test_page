@@ -1,17 +1,26 @@
 
 <script setup lang="ts">
-import { ref, watch, toRef } from 'vue'
+import { ref, watch, toRef, computed } from 'vue'
 import pIcon from '../icon/index.vue';
 import pButton from '../button/index.vue';
 const props = defineProps({
     forbidClick: Boolean, // 是否可点击背景
     visible: Boolean,
+    fullscreen: Boolean,//是否全屏
     footer: {
         type: Boolean,
         default: true
-    }
+    },
+    width:{
+        type: String,
+        default: '50%'
+    },
+    title: {
+        type: String,
+        default: '提示'
+    },
 })
-const { forbidClick } = props
+const { forbidClick, title, width, fullscreen } = props
 
 const emit = defineEmits(['update:visible','confirm','cancel'])
 
@@ -39,13 +48,18 @@ const propVisible = toRef(props, 'visible')
 watch(propVisible, (val) => {
     dialogVisible.value = val
 }, { immediate: true })
+
+const bodyStyle = computed(()=>{
+    if(fullscreen) return 'width:100%;height:100%;top:0;'
+    if(width) return `width:${width};`
+})
 </script>
 <template>
     <div class="p-dialog" v-if="dialogVisible">
         <div class="ceng" @click="!forbidClick && methodsMap.close()"></div>
-        <div class="content">
+        <div class="content" :style="bodyStyle">
             <div class="p-dialog-header p-flex p-flex-ai-center">
-                <span class="p-flex-1 title">提示</span>
+                <span class="p-flex-1 title">{{title}}</span>
                 <p-icon name="icon-close" size="26px" @click="methodsMap.close()"></p-icon>
             </div>
             <div class="p-dialog-body">
@@ -88,6 +102,10 @@ watch(propVisible, (val) => {
         padding:15px 20px;
         font-size: 14px;
     }
+}
+.p-dialog-body{
+    height: 100%;
+    overflow: auto;
 }
 .p-dialog-header{
     .title{

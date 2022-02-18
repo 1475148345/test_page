@@ -45,5 +45,7 @@ export default {
   iconshouquanchenggong: 'icon-shouquanchenggong',
   icontishi: 'icon-tishi',
   iconwushouquan: 'icon-wushouquan',
-  iconxingzhuang: 'icon-xingzhuang'
+  iconxingzhuang: 'icon-xingzhuang',
+  iconZoomOut: 'icon-zoom-out',
+  iconZoomIn: 'icon-room-in'
 } as icon
