@@ -1,8 +1,9 @@
 
 <script setup lang="ts">
-import { ref, watch, toRef, computed } from 'vue'
+import { ref, watch, toRef, computed, onMounted, reactive } from 'vue'
 import pIcon from '../icon/index.vue';
 import pButton from '../button/index.vue';
+import { useDrag } from '../hooks/useDrag'
 const props = defineProps({
     forbidClick: Boolean, // 是否可点击背景
     visible: Boolean,
@@ -25,7 +26,6 @@ const { forbidClick, title, width, fullscreen } = props
 const emit = defineEmits(['update:visible','confirm','cancel'])
 
 const dialogVisible = ref(false)
-
 const methodsMap = {
     close: () => {
         emit('update:visible', false)
@@ -39,14 +39,20 @@ const methodsMap = {
     cancel:()=>{
         emit('cancel')
         methodsMap.close()
-    }
+    },
 }
 /**
  * watch
  */
 const propVisible = toRef(props, 'visible')
+let drag = {remove:()=>{}}
 watch(propVisible, (val) => {
     dialogVisible.value = val
+    if(val){
+        drag = useDrag('contentId')
+    }else{
+        drag.remove()
+    }
 }, { immediate: true })
 
 const bodyStyle = computed(()=>{
@@ -55,9 +61,9 @@ const bodyStyle = computed(()=>{
 })
 </script>
 <template>
-    <div class="p-dialog" v-if="dialogVisible">
+    <div class="p-dialog"  v-if="dialogVisible" >
         <div class="ceng" @click="!forbidClick && methodsMap.close()"></div>
-        <div class="content" :style="bodyStyle">
+        <div class="content" id="contentId" :style="bodyStyle">
             <div class="p-dialog-header p-flex p-flex-ai-center">
                 <span class="p-flex-1 title">{{title}}</span>
                 <p-icon name="icon-close" size="26px" @click="methodsMap.close()"></p-icon>
@@ -108,6 +114,7 @@ const bodyStyle = computed(()=>{
     overflow: auto;
 }
 .p-dialog-header{
+    cursor: move;
     .title{
         line-height: 24px;
         font-size: 18px;

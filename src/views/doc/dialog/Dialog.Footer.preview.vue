@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { PButton } from 'pui-vue-pxs'
-import { PDialog } from '../../../lib';
+import { PButton,PDialog } from 'pui-vue-pxs'
 import { ref } from 'vue';
 import { useToast } from 'pui-vue-pxs/hooks/useToast';
 const toast = useToast()
@@ -31,7 +30,7 @@ const cancel=()=>{
         </p-dialog>
         <p-button @click="visibleFullscreen=true">打开全屏弹窗</p-button>
         <p-dialog v-model:visible="visibleFullscreen" fullscreen>
-            <p style="height: 120vh;">全屏</p>
+            <p>这是一个全屏弹窗</p>
         </p-dialog>
     </div>
 </template>
