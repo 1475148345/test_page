@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PButton, PDialog } from '../../../lib'
+import { PButton, PDialog } from 'pui-vue-pxs'
 import { ref } from 'vue';
 import { useToast } from 'pui-vue-pxs/hooks/useToast';
 const toast = useToast()
