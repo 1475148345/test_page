@@ -6,7 +6,7 @@ export type dragType = {
     y:number,
     el:HTMLElement|null,
 }
-export function useDrag(id:string) {
+export function useDrag(el:string) {
     const moveData:dragType = reactive({
         isActive:false,
         x:0,
@@ -43,7 +43,8 @@ export function useDrag(id:string) {
             }
         },
         init:()=>{
-            moveData.el = document.getElementById(id)
+            const els: any = document.body.querySelectorAll(el)
+            moveData.el = els[els.length-1]
             if(moveData.el){
                 moveData.el.addEventListener('mousedown',methodsMap.mousedown)
                 moveData.el.addEventListener('mouseup',methodsMap.mouseup)

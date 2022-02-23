@@ -49,7 +49,7 @@ let drag = {remove:()=>{}}
 watch(propVisible, (val) => {
     dialogVisible.value = val
     if(val){
-        drag = useDrag('contentId')
+        drag = useDrag('.dialog-content')
     }else{
         drag.remove()
     }
@@ -63,7 +63,7 @@ const bodyStyle = computed(()=>{
 <template>
     <div class="p-dialog"  v-if="dialogVisible" >
         <div class="ceng" @click="!forbidClick && methodsMap.close()"></div>
-        <div class="content" id="contentId" :style="bodyStyle">
+        <div class="content dialog-content" :style="bodyStyle">
             <div class="p-dialog-header p-flex p-flex-ai-center">
                 <span class="p-flex-1 title">{{title}}</span>
                 <p-icon name="icon-close" size="26px" @click="methodsMap.close()"></p-icon>

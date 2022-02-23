@@ -1030,10 +1030,10 @@ prismjs@^1.27.0:
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
   integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
-pui-vue-pxs@^1.1.20:
-  version "1.1.20"
-  resolved "https://registry.yarnpkg.com/pui-vue-pxs/-/pui-vue-pxs-1.1.20.tgz#dea08b3b6de63b9cc23cbdc9b2722c957a99a79f"
-  integrity sha512-wxOnANgVosXoC0D4k9ud/vS1u4spZGatg9EFADpxtu+HC4EyqSOL+oh9r0H4tRDUOolNpL6N8o7rJrtgqSnJ6Q==
+pui-vue-pxs@^1.1.21:
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/pui-vue-pxs/-/pui-vue-pxs-1.1.21.tgz#b2a6699840bf5024d11af21a16ab0d2c4214cbfe"
+  integrity sha512-ZW2LXXj7V8HOjPGI0kcOkqatGf+UFkV05l7wSRSg11T5ci31vLweWFsqnpQSMlXwKK6TuGHhxQF8623UXXmgZg==
 
 queue-microtask@^1.2.2:
   version "1.2.3"
