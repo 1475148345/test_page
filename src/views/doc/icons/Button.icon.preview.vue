@@ -2,6 +2,7 @@
 import { PIcon } from 'pui-vue-pxs'
 import icons from 'pui-vue-pxs/icon/icon'
 import {copyText} from'@/util'
+
 </script>
 
 <preview>基础示例</preview>

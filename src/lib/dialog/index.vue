@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { ref, watch, toRef, computed, onMounted, reactive } from 'vue'
+import { ref, watch, toRef, computed } from 'vue'
 import pIcon from '../icon/index.vue';
 import pButton from '../button/index.vue';
 import { useDrag } from '../hooks/useDrag'
@@ -24,8 +24,8 @@ const props = defineProps({
 const { forbidClick, title, width, fullscreen } = props
 
 const emit = defineEmits(['update:visible','confirm','cancel'])
-
 const dialogVisible = ref(false)
+const isFullscreen = ref(false)
 const methodsMap = {
     close: () => {
         emit('update:visible', false)
@@ -40,15 +40,21 @@ const methodsMap = {
         emit('cancel')
         methodsMap.close()
     },
+    zoom:()=>{
+        isFullscreen.value = true
+    },
+    zoomOut:()=>{
+        isFullscreen.value = false
+    },
 }
 /**
  * watch
  */
 const propVisible = toRef(props, 'visible')
 let drag = {remove:()=>{}}
-watch(propVisible, (val) => {
-    dialogVisible.value = val
-    if(val){
+watch([propVisible,isFullscreen], ([visible,isFull]) => {
+    dialogVisible.value = visible
+    if(visible && !isFull){
         drag = useDrag('.dialog-content')
     }else{
         drag.remove()
@@ -56,7 +62,7 @@ watch(propVisible, (val) => {
 }, { immediate: true })
 
 const bodyStyle = computed(()=>{
-    if(fullscreen) return 'width:100%;height:100%;top:0;'
+    if(fullscreen || isFullscreen.value) return 'width:100%;height:100%;top:0;'
     if(width) return `width:${width};`
 })
 </script>
@@ -66,7 +72,9 @@ const bodyStyle = computed(()=>{
         <div class="content dialog-content" :style="bodyStyle">
             <div class="p-dialog-header p-flex p-flex-ai-center">
                 <span class="p-flex-1 title">{{title}}</span>
-                <p-icon name="icon-close" size="26px" @click="methodsMap.close()"></p-icon>
+                <span v-if="isFullscreen" title="退出全屏"><p-icon name="icon-full-screen-out" size="20px" @click="methodsMap.zoomOut()"></p-icon></span>
+                <span v-else title="全屏显示"><p-icon name="icon-full-screen" size="20px" @click="methodsMap.zoom()"></p-icon></span>
+                <span title="关闭"><p-icon name="icon-close" size="34px" @click="methodsMap.close()"></p-icon></span>
             </div>
             <div class="p-dialog-body">
                 <slot>内容</slot>
