@@ -6,6 +6,7 @@
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "types": "./src/lib/types",
     "keywords": ["vue3", "js"],
     "author": "pc",
     "license": "ISC",
