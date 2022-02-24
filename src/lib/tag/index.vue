@@ -1,6 +1,7 @@
 
 <script setup lang="ts">
 import Icon from '../icon/index.vue'
+import { computed } from 'vue'
 const props = defineProps({
     type: {
       type: String,
@@ -10,8 +11,6 @@ const props = defineProps({
       type: String,
       default: 'normal' // normal、small、big
     },
-    disabled: Boolean,
-    loading: Boolean,
     plain: Boolean,
     icon: {
       type: String,
@@ -24,25 +23,41 @@ const props = defineProps({
     iconColor: {
       type: String,
       default: '#323233'
-    }
+    },
+    closable: Boolean
 });
-const emit = defineEmits(['itemAction'])
-const itemAction = ()=> {
-  emit('itemAction')
-}
+const emit = defineEmits(['click','close'])
+const itemAction = ()=> emit('click')
+const close = ()=> emit('close')
+
+const closeColor = computed(()=>{
+    const colors:{
+        [propName:string]:string
+    } = {
+        primary: '#07c160',
+        info: '#1989fa',
+        default: '#323233',
+        danger: '#ee0a24',
+        warning: '#ff976a',
+    }
+    return props.plain?colors[props.type]: (props.type === 'default'?'#323233':'#ffffff')
+})
 </script>
 <template>
   <div class="p-tag" :class="['p-tag--'+type,'p-tag--'+size,plain?'p-tag--plain':'']" @click="itemAction">
     <slot name="icon">
       <Icon :size="iconSize" :color="iconColor" :name="icon"  v-if="icon"></Icon>
     </slot>
-    <slot>主要按钮</slot>
+    <div :style="closable?'margin-right:5px;color:inherit;':'color:inherit;'">
+        <slot>标签</slot>
+    </div>
+    <Icon :color="closeColor" size="16" name="icon-close" class="close-hover" v-if="closable" @click.stop="close"></Icon>
   </div>
 </template>
 <style scoped lang='scss'>
   @import '../style/base.scss';
   .p-tag{
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-md;
     display: flex;
     align-items: center;
     text-align: center;
@@ -50,12 +65,16 @@ const itemAction = ()=> {
     user-select: none;
     min-width: 70px;
     margin: 0 10px 10px 10px ;
-    &:active{
-      opacity: 0.8;
-    }
-    &:hover{
-      cursor: pointer;
-      opacity: 0.8;
+    position: relative;
+    .close-hover{
+        cursor: pointer;
+        position: absolute;
+        right: 3px;
+         &:hover{
+            background-color: rgba(0,0,0,.1);
+            border-radius: 50%;
+            color: $white;
+        }
     }
   }
 
@@ -75,15 +94,17 @@ const itemAction = ()=> {
     }
   }
 
-  [disabled=true],[disabled='disabled'],[disabled]{
-    cursor: not-allowed !important;
-    opacity: .7 !important;
-  }
-
   .p-tag--primary{
     color: $white;
     background-color: $green;
     border: 1px solid $green;
+    .close-hover{
+        &:hover{
+            background-color: rgba(0,0,0,.1);
+            border-radius: 50%;
+            color: $white;
+        }
+    }
   }
   .p-tag--info{
     color: $white;
@@ -123,6 +144,9 @@ const itemAction = ()=> {
     line-height: 38px;
     padding: 0 10px;
     font-size: $font-size-lg;
+  }
+  .close-hover{
+    cursor: pointer;
   }
 </style>
 
