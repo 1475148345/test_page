@@ -1,7 +1,7 @@
 
 <template>
     <div class="flex wrap">
-        <aside class="menu">
+        <nav class="menu">
             <router-link class="menu-item" to="/doc/button">Button 按钮</router-link>
             <router-link class="menu-item" to="/doc/layout">Layout 布局</router-link>
             <router-link class="menu-item" to="/doc/icons">icons 图标</router-link>
@@ -12,7 +12,8 @@
             <router-link class="menu-item" to="/doc/progress">progress 进度条</router-link>
             <router-link class="menu-item" to="/doc/dialog">dialog 弹窗提示</router-link>
             <router-link class="menu-item" to="/doc/tag">tag 标签</router-link>
-        </aside>
+            <router-link class="menu-item" to="/doc/tooltip">tooltip 文字提示</router-link>
+        </nav>
         <main class="content flex-1">
             <router-view />
         </main>
@@ -39,7 +40,7 @@
             background-color: #f8f8f8;
             margin-left: 10px;
             border-radius: 5px;
-            overflow-y: auto;
+            // overflow-y: auto;
         }
     }
 </style>

@@ -27,6 +27,7 @@ const router = createRouter({
                 { path:'progress',component:()=>import('../views/doc/progress/index.vue') },
                 { path:'dialog',component:()=>import('../views/doc/dialog/index.vue') },
                 { path:'tag',component:()=>import('../views/doc/tag/index.vue') },
+                { path:'tooltip',component:()=>import('../views/doc/tooltip/index.vue') },
             ]
         }
     ]
