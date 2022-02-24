@@ -48,7 +48,7 @@ const closeColor = computed(()=>{
     <slot name="icon">
       <Icon :size="iconSize" :color="iconColor" :name="icon"  v-if="icon"></Icon>
     </slot>
-    <div :style="closable?'margin-right:5px;color:inherit;':'color:inherit;'">
+    <div :style="closable?'margin-right:8px;color:inherit;':'color:inherit;'">
         <slot>标签</slot>
     </div>
     <Icon :color="closeColor" size="16" name="icon-close" class="close-hover" v-if="closable" @click.stop="close"></Icon>
@@ -63,7 +63,7 @@ const closeColor = computed(()=>{
     text-align: center;
     justify-content: center;
     user-select: none;
-    min-width: 70px;
+    min-width: 60px;
     margin: 0 10px 10px 10px ;
     position: relative;
     .close-hover{
@@ -128,9 +128,9 @@ const closeColor = computed(()=>{
   }
 
   .p-tag--small{
-    height: 30px;
-    line-height: 30px;
-    padding: 0 6px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 2px;
     font-size: $font-size-sm;
   }
   .p-tag--normal{

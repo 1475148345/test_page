@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {PTag, PIcon} from '../../../lib'
+import { PTag, PIcon } from 'pui-vue-pxs'
 const click=()=>{
   console.log(11);
 }

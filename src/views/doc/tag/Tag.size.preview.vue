@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {PTag} from '../../../lib'
+import { PTag } from 'pui-vue-pxs'
 </script>
 
 <preview>标签大小</preview>

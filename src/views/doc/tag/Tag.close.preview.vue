@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {PTag} from '../../../lib'
+import { PTag } from 'pui-vue-pxs'
 import { useToast } from 'pui-vue-pxs/hooks'
 const toast = useToast()
 const click=()=>{
