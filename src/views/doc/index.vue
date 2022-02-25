@@ -13,6 +13,7 @@
             <router-link class="menu-item" to="/doc/dialog">dialog 弹窗提示</router-link>
             <router-link class="menu-item" to="/doc/tag">tag 标签</router-link>
             <router-link class="menu-item" to="/doc/tooltip">tooltip 文字提示</router-link>
+            <router-link class="menu-item" to="/doc/popover">popover 弹出框</router-link>
         </nav>
         <main class="content flex-1">
             <router-view />

@@ -9,7 +9,7 @@ const props = defineProps({
     },
     size: {
       type: String,
-      default: 'normal' // normal、small、big
+      default: 'normal' // normal、small、big、mini
     },
     disabled: Boolean,
     loading: Boolean,
@@ -57,7 +57,7 @@ export default {
     justify-content: center;
     user-select: none;
     min-width: 100px;
-    margin: 0 10px 10px 10px ;
+    margin: 0 6px 6px 6px ;
     &:active{
       opacity: 0.8;
     }
@@ -113,7 +113,13 @@ export default {
     background-color: $white;
     border: 1px solid $gray-3;
   }
-
+    .p-button--mini{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    font-size: $font-size-sm;
+    min-width: 60px;
+  }
   .p-button--small{
     height: 36px;
     line-height: 36px;
