@@ -83,6 +83,7 @@ const methodsMap={
 }
 
 watch(isShow,(val)=>{
+    noModel.value=val
     if(val) nextTick(()=>methodsMap.autoPosition())
 })
 watch(noModel,(val)=>{
