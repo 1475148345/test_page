@@ -35,10 +35,14 @@ const methodsMap={
     setPosition:()=>{
         const el:HTMLElement|null = document.querySelector('#tooltip')
         if(el){
-            const {x,y} = el.getBoundingClientRect()
+            const {x,y,height} = el.getBoundingClientRect()
             //考虑边界情况
-            if(x<10) el.style.marginLeft = Math.abs(x)+10+'px'
-            if(y<10) el.style.marginTop = Math.abs(y)+10+'px'
+            if(x<10) position.value = `p-popover-${TOOLTIP.right}`
+            if(y<10){
+                el.style.marginTop = Math.abs(height)+10+'px'
+            }else{
+               placement==='top'  && (el.style.top = -height-10+'px')
+            }
         }
     },
     autoPosition:()=>{
@@ -129,7 +133,7 @@ const contentTitle = computed(()=>{
                 }
             }
             &.p-tooltip-bottom{
-                bottom: -50px;
+                bottom: -70px;
                 left: 50%;
                 transform: translateX(-50%);
                 &::after{

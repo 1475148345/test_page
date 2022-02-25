@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PTooltip, PButton } from '../../../lib'
+import { PTooltip, PButton } from 'pui-vue-pxs'
 </script>
 
 <preview>主题颜色</preview>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PPopover, PButton } from '../../../lib'
+import { PPopover, PButton } from 'pui-vue-pxs'
 import { ref,watch } from 'vue'
 const visible = ref(false)
 watch(visible,(val)=>{
@@ -31,7 +31,7 @@ watch(visible,(val)=>{
     <p-popover placement="top" isClickShow v-model:visible="visible">
         <template #content>
             <p style="padding: 10px 0;">这是一段内容这是一段内容确定删除吗,这是一段内容这是一段内容确定删除吗?</p>
-            <div class="flex flex-w-w ai-c jc-fe">
+            <div style="display: flex;justify-content: flex-end;">
                 <p-button size="mini" @click="visible=false">取消</p-button>
                 <p-button size="mini" type="info" @click="visible=false">确定</p-button>
             </div>

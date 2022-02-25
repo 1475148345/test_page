@@ -36,11 +36,11 @@ const isShow = toRef(props,'visible')
 const noModel = ref(false)
 const methodsMap={
     setPosition:()=>{
-        const el:HTMLElement|null = document.querySelector('#tooltip')
+        const el:HTMLElement|null = document.querySelector('#popover')
         if(el){
             const {x,y,height} = el.getBoundingClientRect()
             //考虑边界情况
-            if(x<10) position.value = `p-tooltip-${TOOLTIP.right}`
+            if(x<10) position.value = `p-popover-${TOOLTIP.right}`
             if(y<10){
                 el.style.marginTop = Math.abs(height)+10+'px'
             }else{
@@ -49,18 +49,18 @@ const methodsMap={
         }
     },
     autoPosition:()=>{
-        position.value = `p-tooltip-${TOOLTIP.bottom}`
+        position.value = `p-popover-${TOOLTIP.bottom}`
         if(placement!==TOOLTIP.auto){
-            position.value = `p-tooltip-${placement}`
+            position.value = `p-popover-${placement}`
             methodsMap.setPosition()
         }else{
-            const el:HTMLElement|null = document.querySelector('#tooltip')
+            const el:HTMLElement|null = document.querySelector('#popover')
             if(el){
                 const {x,y,bottom,top,left,right} = el.getBoundingClientRect()
-                if(x<10) position.value = `p-tooltip-${TOOLTIP.right}`
-                if(y<10) position.value = `p-tooltip-${TOOLTIP.bottom}`
-                if(bottom>top) position.value = `p-tooltip-${TOOLTIP.top}`
-                if(right>left) position.value = `p-tooltip-${TOOLTIP.left}`
+                if(x<10) position.value = `p-popover-${TOOLTIP.right}`
+                if(y<10) position.value = `p-popover-${TOOLTIP.bottom}`
+                if(bottom>top) position.value = `p-popover-${TOOLTIP.top}`
+                if(right>left) position.value = `p-popover-${TOOLTIP.left}`
             }
         }
 
@@ -91,6 +91,7 @@ watch(noModel,(val)=>{
 })
 
 const contentTitle = computed(()=>{
+    return content
     const len = Math.ceil(content.length / lineSize)
     state.lineNumber = len
     if( len===1 ) return content
@@ -105,8 +106,8 @@ const contentTitle = computed(()=>{
 
 </script>
 <template>
-  <div class="p-tooltip">
-    <div class="p-tooltip-content-dark" id="tooltip" :class="[position,'p-tooltip-content-'+theme]" v-if="isShow || noModel">
+  <div class="p-popover">
+    <div class="p-popover-content-dark" id="popover" :class="[position,'p-popover-content-'+theme]" v-if="isShow || noModel">
         <slot name="content"><div v-html="contentTitle"></div></slot>
     </div>
     <div  @mouseover="methodsMap.mouseover" @mouseout="methodsMap.mouseout" @click="methodsMap.clickShow">
@@ -115,13 +116,13 @@ const contentTitle = computed(()=>{
   </div>
 </template>
 <style lang='scss' scoped>
-    .p-tooltip{
+    .p-popover{
         position: relative;
-        .p-tooltip-content-dark{
+        .p-popover-content-dark{
             position: absolute;
             padding: 8px 12px;
             width: 300px;
-            word-break: break-all;
+            // word-break: break-all;
             z-index: 222;
             border-radius: 4px;
             background-color: #333;
@@ -130,7 +131,7 @@ const contentTitle = computed(()=>{
             font-size: 14px;
             text-align: justify;
             box-sizing: border-box;
-            &.p-tooltip-top{
+            &.p-popover-top{
                 top: -40px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -148,7 +149,7 @@ const contentTitle = computed(()=>{
                     border-right: 6px solid transparent;
                 }
             }
-            &.p-tooltip-bottom{
+            &.p-popover-bottom{
                 bottom: -60px;
                 left: 50%;
                 transform: translateX(-50%);
@@ -166,7 +167,7 @@ const contentTitle = computed(()=>{
                     border-right: 6px solid transparent;
                 }
             }
-            &.p-tooltip-right{
+            &.p-popover-right{
                 left: calc(100% + 10px);
                 top: 50%;
                 transform: translateY(-50%);
@@ -184,7 +185,7 @@ const contentTitle = computed(()=>{
                     border-bottom: 6px solid transparent;
                 }
             }
-            &.p-tooltip-left{
+            &.p-popover-left{
                 right: calc(100%);
                 top: 50%;
                 transform: translateY(-50%);
@@ -203,12 +204,12 @@ const contentTitle = computed(()=>{
                 }
             }
         }
-        .p-tooltip-content-light{
+        .p-popover-content-light{
             background-color: #fff;
             color: #333;
             border: 1px solid #fff;
             box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
-            &.p-tooltip-top{
+            &.p-popover-top{
                 &::before{
                     content: "";
                     position: absolute;
@@ -223,7 +224,7 @@ const contentTitle = computed(()=>{
                     z-index: 2;
                 }
             }
-            &.p-tooltip-bottom{
+            &.p-popover-bottom{
                 &::before{
                     content: '';
                     display: inline-block;
@@ -239,7 +240,7 @@ const contentTitle = computed(()=>{
                     z-index: 2;
                 }
             }
-            &.p-tooltip-right{
+            &.p-popover-right{
                 &::before{
                     content: '';
                     display: inline-block;
@@ -255,7 +256,7 @@ const contentTitle = computed(()=>{
                     z-index: 2;
                 }
             }
-            &.p-tooltip-left{
+            &.p-popover-left{
                 &::before{
                     content: '';
                     display: inline-block;
