@@ -10,3 +10,11 @@ export enum PROGRESS {
     center = 'center',
     right = 'right',
 }
+
+export enum TOOLTIP {
+    left = 'left',
+    bottom = 'bottom',
+    right = 'right',
+    top = 'top',
+    auto = 'auto',
+}
