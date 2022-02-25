@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { onMounted, computed, reactive, PropType, ref } from 'vue'
+import { onMounted, computed, reactive, PropType, ref, nextTick, watch } from 'vue'
 import { TOOLTIP } from '../enums/position';
 import { tooltipType } from '../types/position'
 import { tooltipThemeType } from '../types/theme'
@@ -33,7 +33,7 @@ const position = ref('')
 const isShow = ref(false)
 const methodsMap={
     setPosition:()=>{
-        const el:HTMLElement|null = document.querySelector('.p-tooltip-content')
+        const el:HTMLElement|null = document.querySelector('#tooltip')
         if(el){
             const {x,y} = el.getBoundingClientRect()
             //考虑边界情况
@@ -42,16 +42,18 @@ const methodsMap={
         }
     },
     autoPosition:()=>{
+        position.value = `p-tooltip-${TOOLTIP.bottom}`
         if(placement!==TOOLTIP.auto){
             position.value = `p-tooltip-${placement}`
         }else{
-            const el:HTMLElement|null = document.querySelector('.p-tooltip-content')
+            const el:HTMLElement|null = document.querySelector('#tooltip')
             if(el){
-                const {x,y} = el.getBoundingClientRect()
+                const {x,y,bottom,top,left,right} = el.getBoundingClientRect()
                 if(x<10)position.value = `p-tooltip-${TOOLTIP.right}`
                 if(y<10) position.value = `p-tooltip-${TOOLTIP.bottom}`
+                if(bottom>top) position.value = `p-tooltip-${TOOLTIP.top}`
+                if(right>left) position.value = `p-tooltip-${TOOLTIP.left}`
             }
-            position.value = `p-tooltip-${TOOLTIP.bottom}`
         }
         methodsMap.setPosition()
     },
@@ -68,8 +70,9 @@ const methodsMap={
         isShow.value = !isShow.value
     }
 }
-onMounted(() => {
-    methodsMap.autoPosition()
+
+watch(isShow,(val)=>{
+    if(val) nextTick(()=>methodsMap.autoPosition())
 })
 
 const contentTitle = computed(()=>{
@@ -87,7 +90,7 @@ const contentTitle = computed(()=>{
 </script>
 <template>
   <div class="p-tooltip">
-    <div class="p-tooltip-content-dark" :class="[position,'p-tooltip-content-'+theme]" v-html="contentTitle" v-show="isShow"></div>
+    <div class="p-tooltip-content-dark" id="tooltip" :class="[position,'p-tooltip-content-'+theme]" v-html="contentTitle" v-if="isShow"></div>
     <div  @mouseover="methodsMap.mouseover" @mouseout="methodsMap.mouseout" @click="methodsMap.clickShow">
         <slot></slot>
     </div>
