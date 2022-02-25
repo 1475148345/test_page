@@ -22,7 +22,7 @@ import { PTooltip, PButton } from '../../../lib'
         <p-button>left</p-button>
     </p-tooltip>
     <p-tooltip placement="top" isClickShow theme="light">
-        <p-button>left点击显示</p-button>
+        <p-button>top点击显示</p-button>
     </p-tooltip>
   </div>
 </template>
