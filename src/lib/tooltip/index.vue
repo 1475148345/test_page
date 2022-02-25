@@ -3,6 +3,7 @@
 import { onMounted, computed, reactive, PropType, ref } from 'vue'
 import { TOOLTIP } from '../enums/position';
 import { tooltipType } from '../types/position'
+import { tooltipThemeType } from '../types/theme'
 const props = defineProps({
     content:{
         type:String,
@@ -16,6 +17,10 @@ const props = defineProps({
     lineSize:{
         type:Number,
         default:30//每行字数
+    },
+    theme:{
+        type: String as PropType<tooltipThemeType>,
+        default:'dark'
     }
 })
 const { content, placement, isClickShow,lineSize } = props
@@ -82,7 +87,7 @@ const contentTitle = computed(()=>{
 </script>
 <template>
   <div class="p-tooltip">
-    <div class="p-tooltip-content" :class="position" v-html="contentTitle" v-show="isShow"></div>
+    <div class="p-tooltip-content-dark" :class="[position,'p-tooltip-content-'+theme]" v-html="contentTitle" v-show="isShow"></div>
     <div  @mouseover="methodsMap.mouseover" @mouseout="methodsMap.mouseout" @click="methodsMap.clickShow">
         <slot></slot>
     </div>
@@ -91,7 +96,7 @@ const contentTitle = computed(()=>{
 <style lang='scss' scoped>
     .p-tooltip{
         position: relative;
-        .p-tooltip-content{
+        .p-tooltip-content-dark{
             position: absolute;
             padding: 8px 12px;
             min-width: 60px;
@@ -169,6 +174,71 @@ const contentTitle = computed(()=>{
                     border-left: 6px solid #333;
                     border-top: 6px solid transparent;
                     border-bottom: 6px solid transparent;
+                }
+            }
+        }
+        .p-tooltip-content-light{
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #333;
+            &.p-tooltip-top{
+                &::before{
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid #fff;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    z-index: 2;
+                }
+            }
+            &.p-tooltip-bottom{
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: -5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-bottom: 7px solid #fff;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    z-index: 2;
+                }
+            }
+            &.p-tooltip-right{
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: -5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 0;
+                    height: 0;
+                    border-right: 7px solid #fff;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    z-index: 2;
+                }
+            }
+            &.p-tooltip-left{
+                &::before{
+                    content: '';
+                    position: absolute;
+                    right: -5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 0;
+                    height: 0;
+                    border-left: 7px solid #fff;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    z-index: 2;
                 }
             }
         }
