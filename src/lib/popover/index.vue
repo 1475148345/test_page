@@ -1,35 +1,28 @@
 
 <script setup lang="ts">
-import { computed, reactive, PropType, ref, nextTick, watch, toRef } from 'vue'
+import { PropType, ref, nextTick, watch, toRef } from 'vue'
 import { TOOLTIP } from '../enums/position';
 import { tooltipType } from '../types/position'
 import { tooltipThemeType } from '../types/theme'
 const props = defineProps({
     content:{
         type:String,
-        default:'这是提示内容这是提示内容这是提示内容这是提示内容这是提示内容这是提示内容这是提示内容这是提示内容'
+        default:'这是提示内容'
     },
     placement:{
         type: String as PropType<tooltipType>, //top、bottom、right、left、auto
         default: 'auto'
     },
     isClickShow:Boolean,
-    lineSize:{
-        type:Number,
-        default:19//每行字数
-    },
     theme:{
         type: String as PropType<tooltipThemeType>,
         default:'light'
     },
     visible: Boolean
 })
-const { content, placement, isClickShow,lineSize } = props
+const { content, placement, isClickShow } = props
 
 const emit = defineEmits(['update:visible'])
-const state = reactive({
-    lineNumber:1,//行数
-})
 
 const position = ref('')
 const isShow = toRef(props,'visible')
@@ -90,25 +83,11 @@ watch(noModel,(val)=>{
     if(val) nextTick(()=>methodsMap.autoPosition())
 })
 
-const contentTitle = computed(()=>{
-    return content
-    const len = Math.ceil(content.length / lineSize)
-    state.lineNumber = len
-    if( len===1 ) return content
-    let strArr = []
-    for(let i=0;i<len;i++){
-        strArr.push(content.substring(i*lineSize,(i+1)*lineSize) + (i===len?'':'<br/>'))
-    }
-    methodsMap.setPosition()
-    return strArr.join('')
-})
-
-
 </script>
 <template>
   <div class="p-popover">
     <div class="p-popover-content-dark" id="popover" :class="[position,'p-popover-content-'+theme]" v-if="isShow || noModel">
-        <slot name="content"><div v-html="contentTitle"></div></slot>
+        <slot name="content"><div v-html="content"></div></slot>
     </div>
     <div  @mouseover="methodsMap.mouseover" @mouseout="methodsMap.mouseout" @click="methodsMap.clickShow">
         <slot></slot>
