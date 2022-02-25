@@ -17,7 +17,6 @@ export function useDrag(el:string) {
     const methodsMap = {
         mousedown:(e:MouseEvent)=>{
             moveData.isActive = true
-            // moveData.el = document.getElementById(id)
             if(moveData.el){
                 let mt = moveData.el.style.marginTop || '0px'
                 let ml = moveData.el.style.marginLeft || '0px'

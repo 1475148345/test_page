@@ -6,7 +6,6 @@ export function useToast() {
     return function install(options:ToastType){
 
         if(_container) document.body.removeChild(_container)
-        // _container = document.getElementById('pToast')
         _container = document.createElement('div')
         _container.setAttribute('id','pToast')
 
