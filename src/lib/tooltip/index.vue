@@ -12,13 +12,16 @@ const props = defineProps({
         type: String as PropType<tooltipType>, //top、bottom、right、left、auto
         default: 'auto'
     },
-    isClickShow:Boolean
+    isClickShow:Boolean,
+    lineSize:{
+        type:Number,
+        default:30//每行字数
+    }
 })
-const { content, placement, isClickShow } = props
+const { content, placement, isClickShow,lineSize } = props
 
 const state = reactive({
     lineNumber:1,//行数
-    lineSize:30,//每行字数
 })
 
 const position = ref('')
@@ -65,7 +68,6 @@ onMounted(() => {
 })
 
 const contentTitle = computed(()=>{
-    const { lineSize } = state
     const len = Math.ceil(content.length / lineSize)
     state.lineNumber = len
     if( len===1 ) return content
