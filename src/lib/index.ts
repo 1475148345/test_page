@@ -15,29 +15,44 @@ import PDialog from "./dialog/index.vue";
 import PTag from "./tag/index.vue";
 import PTooltip from "./tooltip/index.vue";
 import PPopover from "./popover/index.vue";
+import PInput from "./input/index.vue";
 export {
-  PButton,
-  PRow,
-  PCol,
-  PLoading,
-  PIcon,
-  PImage,
-  PToast,
-  PMessage,
-  PProgress,
-  PDialog,
-  PTag,
-  PTooltip,
-  PPopover
-}
+    PButton,
+    PRow,
+    PCol,
+    PLoading,
+    PIcon,
+    PImage,
+    PToast,
+    PMessage,
+    PProgress,
+    PDialog,
+    PTag,
+    PTooltip,
+    PPopover,
+    PInput,
+};
 
 // 全局注册主键
 type compType={
     [propName:string]:any
 }
-const COMP:compType = {
-  PButton, PRow, PCol, PLoading, PIcon, PImage, PToast, PMessage, PProgress, PDialog, PTag, PTooltip, PPopover
-}
+const COMP: compType = {
+    PButton,
+    PRow,
+    PCol,
+    PLoading,
+    PIcon,
+    PImage,
+    PToast,
+    PMessage,
+    PProgress,
+    PDialog,
+    PTag,
+    PTooltip,
+    PPopover,
+    PInput,
+};
 export function install(app: App): void {
   for (const key in COMP) {
     app.component(`p-${key}`, COMP[key]);

@@ -2,8 +2,8 @@
   <div class="pre">
     <h2 class="flex jc-sb ai-c">
       {{ component.__sourceCodeTitle }}
-      <Button @click="hideCode" v-if="codeVisible">隐藏代码</Button>
-      <Button @click="showCode" v-else>查看代码</Button>
+      <Button @click="hideCode" v-if="codeVisible" size="small" type="warning">隐藏代码</Button>
+      <Button @click="showCode" v-else size="small" type="warning">查看代码</Button>
     </h2>
     <div class="pre-component">
       <component :is="component" />

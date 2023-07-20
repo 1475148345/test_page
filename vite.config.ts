@@ -13,7 +13,7 @@ export default defineConfig({
   resolve:{
     alias:{
       "@": path.resolve(__dirname, "./src"), //设置别名
-    }
+    },
   },
   css:{
     preprocessorOptions:{

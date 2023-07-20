@@ -5,5 +5,6 @@ export * from './toast'
 export * from './position'
 export * from './message'
 export * from './theme'
+export * from './input'
 
 export declare type ShapeType = 'line' | 'circle'

@@ -6,7 +6,8 @@
             default: 0
         },
         type: {
-            type: String // 可选flex
+            type: String,
+						default:'flex' // 可选flex
         },
         justify: {
             type: String, // Flex 主轴对齐方式，可选值为 start end center space-around space-between
