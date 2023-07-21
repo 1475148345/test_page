@@ -48,7 +48,8 @@ export default {
     copy({
         targets: [
             { src: 'public/package.json', dest: 'dist/lib' },
-            { src: 'src/lib/*', dest: 'dist/lib' }
+            { src: 'src/lib/*', dest: 'dist/lib' },
+            { src: 'README.md', dest: 'dist/lib' },
         ]
     })
   ],
