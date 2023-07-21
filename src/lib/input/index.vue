@@ -16,7 +16,8 @@ const props = defineProps({
 	type:{
 		type:String,
 		default:'text',//text、password等
-	}
+	},
+	prefixIcon: String,//前缀图标
 })
 
 const type = ref(props.type)
@@ -54,11 +55,17 @@ const showPasswordChange=()=>{
 </script>
 <template>
 	<div class="p-input p-flex p-flex-ai-center" :class="['p-input--'+props.size,isFocus ? 'is-focus' :'']">
-		<input :type="type" placeholder="请输入内容" class="p-flex-1" v-model="inputValue" @focus="focus" @blur="blur">
-		<div class="icon" v-if="props.clearable && inputValue" @click="clear">
-			<p-icon name="icon-close1" size="16px" color="#c8c9cc"></p-icon>
+		<!-- 前缀图标 -->
+		<div class="" v-if="props.prefixIcon">
+			<p-icon name="icon-eye" size="16px" color="#7e8db9"></p-icon>
 		</div>
-		<div class="icon show" v-if="showPassword" @click="showPasswordChange">
+		<input :type="type" placeholder="请输入内容" class="p-flex-1" v-model="inputValue" @focus="focus" @blur="blur">
+		<!-- 可清除图标 -->
+		<div class="icon-can-click clearable-icon" v-if="props.clearable && inputValue" @click="clear">
+			<p-icon name="icon-close-circle" size="16px" color="#c8c9cc"></p-icon>
+		</div>
+		<!-- 密码图标 -->
+		<div class="icon-can-click" v-if="showPassword" @click="showPasswordChange">
 			<p-icon name="icon-eye-close" size="16px" color="#7e8db9" v-if="isShowPassword"></p-icon>
 			<p-icon name="icon-eye" size="16px" color="#7e8db9" v-else></p-icon>
 		</div>
@@ -95,11 +102,14 @@ export default {
 				&:hover{
 					border-color: $color-primary;
 				}
+				.clearable-icon{
+					display: block;
+				}
 		}
 		border: 1px solid $border-color;
 		&:hover{
 			border-color: $gray-5;
-			.icon{
+			.clearable-icon{
 				display: block;
 			}
 		}
@@ -111,13 +121,12 @@ export default {
 				color: $placeholder;
 			}
 		}
-		.icon{
+		.icon-can-click{
 			cursor: pointer;
 			opacity: .7;
-			display: none;
 		}
-		.show{
-			display: block;
+		.clearable-icon{
+			display: none;
 		}
 	}
 </style>
