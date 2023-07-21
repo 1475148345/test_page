@@ -48,5 +48,8 @@ export default {
   iconwushouquan: 'icon-wushouquan',
   iconxingzhuang: 'icon-xingzhuang',
   iconZoomOut: 'icon-zoom-out',
-  iconZoomIn: 'icon-room-in'
+  iconZoomIn: 'icon-room-in',
+  iconCloseCircle: 'icon-close-circle',
+  iconEye: 'icon-eye',
+  iconEyeClose: 'icon-eye-close',
 } as icon
