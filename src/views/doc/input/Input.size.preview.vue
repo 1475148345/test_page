@@ -4,8 +4,8 @@ import { PInput } from '@/lib'
 <preview>尺寸</preview>
 <template>
 	<div class="flex flex-d-c container">
-		<PInput size="small"/>
-		<PInput class="mt10"/>
-		<PInput size="large" class="mt10"/>
+		<PInput size="small" placeholder="small"/>
+		<PInput class="mt10" placeholder="default"/>
+		<PInput size="large" class="mt10" placeholder="large"/>
 	</div>
 </template>

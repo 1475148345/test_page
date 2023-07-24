@@ -8,6 +8,10 @@ const props = defineProps({
 		type: String as PropType<InputSizeType>,
 		default: 'default' // 'large' | 'default' | 'small'
 	},
+	placeholder:{
+		type:String,
+		default:'请输入内容'
+	},
 	modelValue:{
 		type:[String,Number]
 	},
@@ -17,7 +21,8 @@ const props = defineProps({
 		type:String,
 		default:'text',//text、password等
 	},
-	prefixIcon: String,//前缀图标
+	prefixIcon: String,//前缀图标 slot
+	suffixIcon: String,//后缀图标 slot
 })
 
 const type = ref(props.type)
@@ -56,10 +61,16 @@ const showPasswordChange=()=>{
 <template>
 	<div class="p-input p-flex p-flex-ai-center" :class="['p-input--'+props.size,isFocus ? 'is-focus' :'']">
 		<!-- 前缀图标 -->
-		<div class="" v-if="props.prefixIcon">
-			<p-icon name="icon-eye" size="16px" color="#7e8db9"></p-icon>
+		<div class="">
+			<p-icon :name="props.prefixIcon" size="16px" color="#7e8db9"  v-if="props.prefixIcon"></p-icon>
+			<slot name="prefixIcon" v-else></slot>
 		</div>
-		<input :type="type" placeholder="请输入内容" class="p-flex-1" v-model="inputValue" @focus="focus" @blur="blur">
+		<input :type="type" :placeholder="placeholder" class="p-flex-1" v-model="inputValue" @focus="focus" @blur="blur">
+		<!-- 后缀图标 -->
+		<div class="">
+			<p-icon :name="props.suffixIcon" size="16px" color="#7e8db9"  v-if="props.suffixIcon"></p-icon>
+			<slot name="suffixIcon" v-else></slot>
+		</div>
 		<!-- 可清除图标 -->
 		<div class="icon-can-click clearable-icon" v-if="props.clearable && inputValue" @click="clear">
 			<p-icon name="icon-close-circle" size="16px" color="#c8c9cc"></p-icon>

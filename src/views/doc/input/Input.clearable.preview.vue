@@ -5,5 +5,5 @@ const inputValue = ref()
 </script>
 <preview>可清除</preview>
 <template>
-	<PInput v-model="inputValue" clearable/>
+	<PInput v-model="inputValue" clearable placeholder="可清除图标"/>
 </template>
