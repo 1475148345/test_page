@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { PSelect } from "@/lib";
+import { PSelect } from "pui-vue-pxs";
 const selectValue = ref();
 const option = ref([
     {
@@ -27,5 +27,5 @@ const option = ref([
 </script>
 <preview>可清除</preview>
 <template>
-    <PSelect class="mt10" :option="option" v-model="selectValue" clearable />
+    <p-select class="mt10" :option="option" v-model="selectValue" clearable />
 </template>

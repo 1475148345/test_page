@@ -4,13 +4,16 @@
     "description": "vue3",
     "main": "pui.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "types": "./src/lib/types",
-    "keywords": ["vue3", "js"],
+    "keywords": [
+        "vue3",
+        "js"
+    ],
     "author": "pc",
     "license": "ISC",
     "devDependencies": {
-      "babel-plugin-component": "^1.1.1"
+        "babel-plugin-component": "^1.1.1"
     }
-  }
+}

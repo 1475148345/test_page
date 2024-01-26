@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { PSelect } from "@/lib";
+import { PSelect } from "pui-vue-pxs";
 const selectValue = ref("1");
-// const selectValue = ref(["1", "2"]);
 const option = ref([
     {
         label: "苹果",
@@ -29,6 +28,5 @@ const option = ref([
 </script>
 <preview>基础示例</preview>
 <template>
-    <!-- <PSelect class="mt10" multiple :option="option" v-model="selectValue" clearable /> -->
-    <PSelect class="mt10" filterable :option="option" v-model="selectValue" clearable />
+    <p-select class="mt10" :option="option" v-model="selectValue" />
 </template>

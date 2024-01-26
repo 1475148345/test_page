@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { PSelect } from "@/lib";
+import { PSelect } from "pui-vue-pxs";
 const selectValue = ref("1");
 const selectList = ref([]);
 const option = ref([
@@ -52,6 +52,6 @@ const optionList = ref([
 </script>
 <preview>有禁用选项</preview>
 <template>
-    <PSelect class="mt10" filterable :option="option" v-model="selectValue" clearable />
-    <PSelect class="mt10" multiple :option="optionList" v-model="selectList" clearable />
+    <p-select class="mt10" filterable :option="option" v-model="selectValue" clearable />
+    <p-select class="mt10" multiple :option="optionList" v-model="selectList" clearable />
 </template>

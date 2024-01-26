@@ -17,28 +17,13 @@ import PTooltip from "./tooltip/index.vue";
 import PPopover from "./popover/index.vue";
 import PInput from "./input/index.vue";
 import PSelect from "./select/index.vue";
-export {
-    PButton,
-    PRow,
-    PCol,
-    PLoading,
-    PIcon,
-    PImage,
-    PToast,
-    PMessage,
-    PProgress,
-    PDialog,
-    PTag,
-    PTooltip,
-    PPopover,
-    PInput,
-    PSelect,
-};
+const version = "1.1.9";
+export { PButton, PRow, PCol, PLoading, PIcon, PImage, PToast, PMessage, PProgress, PDialog, PTag, PTooltip, PPopover, PInput, PSelect, version };
 
 // 全局注册主键
-type compType={
-    [propName:string]:any
-}
+type compType = {
+    [propName: string]: any;
+};
 const COMP: compType = {
     PButton,
     PRow,
@@ -57,11 +42,9 @@ const COMP: compType = {
     PSelect,
 };
 export function install(app: App): void {
-  for (const key in COMP) {
-    app.component(`p-${key}`, COMP[key]);
-  }
+    for (const key in COMP) {
+        app.component(`p-${key}`, COMP[key]);
+    }
 }
 
-
-export default install
-
+export default install;
