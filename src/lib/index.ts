@@ -16,6 +16,7 @@ import PTag from "./tag/index.vue";
 import PTooltip from "./tooltip/index.vue";
 import PPopover from "./popover/index.vue";
 import PInput from "./input/index.vue";
+import PSelect from "./select/index.vue";
 export {
     PButton,
     PRow,
@@ -31,6 +32,7 @@ export {
     PTooltip,
     PPopover,
     PInput,
+    PSelect,
 };
 
 // 全局注册主键
@@ -52,6 +54,7 @@ const COMP: compType = {
     PTooltip,
     PPopover,
     PInput,
+    PSelect,
 };
 export function install(app: App): void {
   for (const key in COMP) {

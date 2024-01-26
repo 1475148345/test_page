@@ -1,7 +1,9 @@
 {
-    "singleQuote": true,
+    "singleQuote": false,
     "seme": true,
     "tabWidth": 4,
-    "TrailingCooma": "all",
-    "bracketSpacing": true
-  }
+    "TrailingCooma": "none",
+    "bracketSpacing": true,
+    "proseWrap": "never",
+    "printWidth": 200
+}

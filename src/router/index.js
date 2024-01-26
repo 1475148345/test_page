@@ -71,6 +71,10 @@ const router = createRouter({
                     path: 'input',
                     component: () => import('../views/doc/input/index.vue'),
                 },
+                {
+                    path: 'select',
+                    component: () => import('../views/doc/select/index.vue'),
+                },
             ],
         },
     ],

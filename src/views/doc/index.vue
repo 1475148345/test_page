@@ -20,6 +20,7 @@
 					<h2>表单</h2>
 					<nav class="menu">
 							<router-link class="menu-item" to="/doc/input">input 输入框</router-link>
+							<router-link class="menu-item" to="/doc/select">select 下拉框</router-link>
 					</nav>
 				</div>
         <main class="content flex-1">
