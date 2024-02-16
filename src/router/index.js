@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-const history = createWebHashHistory("/test_page/");
+const history = createWebHashHistory();
 // import {h} from 'vue'
 // import Markdown from "../components/Markdown.vue";
 // const md = (string) => h(Markdown, { content: string, key: string });

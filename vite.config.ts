@@ -5,7 +5,10 @@ const md = require("vite-plugin-markdown");
 import vitePluginVue from "./src/plugin/vue-custom-blocks-plugin";
 export default defineConfig({
     plugins: [vue(), md.plugin({ mode: ["html", "vue"] }), vitePluginVue],
-    // base: "./", //打包路径
+    base: "./", //打包路径
+    build: {
+        outDir: "test_page",
+    },
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"), //设置别名
