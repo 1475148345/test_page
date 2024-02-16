@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [vue(), md.plugin({ mode: ["html", "vue"] }), vitePluginVue],
     base: "./", //打包路径
     build: {
-        outDir: "test_page",
+        outDir: "docs",
     },
     resolve: {
         alias: {

@@ -1,0 +1,1 @@
+import{u as o}from"./index.adffe6dd.js";const s={},u=t=>{let e=document.createElement("input");e.value=t,document.body.appendChild(e),e.select(),document.execCommand("Copy"),o()({message:"\u590D\u5236\u6210\u529F"}),e.remove()},c=t=>{const e=`/src/assets/${t}`;return new URL(e,s.url).href};export{u as c,c as g};
