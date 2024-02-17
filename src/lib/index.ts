@@ -1,7 +1,7 @@
 import { App } from "vue";
 // export * from './hooks'
 // export * from './types'
-
+// import "./style/base.scss";
 import PButton from "./button/index.vue";
 import PRow from "./layout/row.vue";
 import PCol from "./layout/col.vue";

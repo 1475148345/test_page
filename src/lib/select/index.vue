@@ -178,7 +178,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../style/base.scss";
+// @import "../style/base.scss";
 .p-select--large {
     min-height: 40px;
     line-height: 40px;
